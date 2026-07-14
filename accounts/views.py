@@ -1,39 +1,33 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .models import User
 
 
 def login_view(request):
+
     message = ""
 
     if request.method == "POST":
-        username = request.POST["username"]
-        password = request.POST["password"]
 
-        try:
-            User.objects.get(
-                username=username,
-                password=password
-            )
-            return redirect("register")
-
-        except User.DoesNotExist:
-            message = "Invalid Username or Password"
-
-    return render(request, "login.html", {"message": message})
+        username = request.POST['username']
+        password = request.POST['password']
 
 
-def register_view(request):
-    message = ""
-
-    if request.method == "POST":
-        username = request.POST["username"]
-        password = request.POST["password"]
-
-        User.objects.create(
+        user = User.objects.filter(
             username=username,
             password=password
-        )
+        ).first()
 
-        message = "Registration Successful"
 
-    return render(request, "register.html", {"message": message})
+        if user:
+            message = "Login Successful"
+        else:
+            message = "Invalid Username or Password"
+
+
+    return render(
+        request,
+        "login.html",
+        {
+            "message": message
+        }
+    )

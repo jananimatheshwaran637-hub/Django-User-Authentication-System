@@ -3,28 +3,30 @@
 <head>
     <title>Login</title>
 </head>
+
 <body>
 
-<h2>User Login</h2>
+<h2>Login Page</h2>
 
 <form method="POST">
-    {% csrf_token %}
 
-    <label>Username:</label>
-    <input type="text" name="username">
+{% csrf_token %}
 
-    <br><br>
+<input type="text" name="username" placeholder="Username">
 
-    <label>Password:</label>
-    <input type="password" name="password">
+<br><br>
 
-    <br><br>
+<input type="password" name="password" placeholder="Password">
 
-    <button type="submit">Login</button>
+<br><br>
+
+<button type="submit">Login</button>
 
 </form>
 
-<a href="/register/">Create Account</a>
+
+<h3>{{ message }}</h3>
+
 
 </body>
 </html>
