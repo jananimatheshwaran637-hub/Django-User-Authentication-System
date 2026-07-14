@@ -3,39 +3,31 @@ from .models import User
 
 
 def login_view(request):
-
     message = ""
 
     if request.method == "POST":
-
-        username = request.POST['username']
-        password = request.POST['password']
+        username = request.POST["username"]
+        password = request.POST["password"]
 
         try:
-            user = User.objects.get(
+            User.objects.get(
                 username=username,
                 password=password
             )
-
-            message = "Login Successful"
+            return redirect("register")
 
         except User.DoesNotExist:
             message = "Invalid Username or Password"
 
-
     return render(request, "login.html", {"message": message})
 
 
-
 def register_view(request):
-
     message = ""
 
     if request.method == "POST":
-
-        username = request.POST['username']
-        password = request.POST['password']
-
+        username = request.POST["username"]
+        password = request.POST["password"]
 
         User.objects.create(
             username=username,
@@ -44,5 +36,4 @@ def register_view(request):
 
         message = "Registration Successful"
 
-
-    return render(request,"register.html",{"message":message})
+    return render(request, "register.html", {"message": message})
