@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Receipt
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+
+<h2 class="mb-4">
+    Receipt Management
+</h2>
+
+
+<a href="{% url 'add_receipt' %}" 
+class="btn btn-success mb-3">
+
++ Create Receipt
+
+</a>
+
+
+<table class="table table-bordered table-striped">
+
+<thead>
+
+<tr>
+
+<th>Customer</th>
+
+<th>Product</th>
+
+<th>Quantity</th>
+
+<th>Amount</th>
+
+<th>Date</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+{% for r in receipts %}
+
+<tr>
+
+<td>
+{{ r.customer_name }}
+</td>
+
+
+<td>
+{{ r.product_name }}
+</td>
+
+
+<td>
+{{ r.quantity }}
+</td>
+
+
+<td>
+₹ {{ r.amount }}
+</td>
+
+
+<td>
+{{ r.date }}
+</td>
+
+
+<td>
+
+
+<a href="{% url 'edit_receipt' r.id %}"
+class="btn btn-warning btn-sm">
+
+Edit
+
+</a>
+
+
+<a href="{% url 'delete_receipt' r.id %}"
+class="btn btn-danger btn-sm"
+onclick="return confirm('Delete Receipt?')">
+
+Delete
+
+</a>
+
+
+<a href="{% url 'print_receipt' r.id %}"
+class="btn btn-primary btn-sm">
+
+Print
+
+</a>
+
+
+</td>
+
+
+</tr>
+
+
+{% empty %}
+
+<tr>
+
+<td colspan="6" class="text-center">
+
+No Receipt Available
+
+</td>
+
+</tr>
+
+
+{% endfor %}
+
+
+</tbody>
+
+</table>
+
+
+</div>
+
+
+{% endblock %}

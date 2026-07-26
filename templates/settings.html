@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Settings
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h2 class="mb-4">
+        ⚙️ Settings
+    </h2>
+
+    <div class="row">
+
+        <!-- Profile Settings -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-body text-center">
+
+                    <h4>👤 Profile Settings</h4>
+
+                    <p>
+                        Update your profile information.
+                    </p>
+
+                    <a href="{% url 'profile' %}"
+                       class="btn btn-primary">
+                        Open
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Company Settings -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-body text-center">
+
+                    <h4>🏢 Company Settings</h4>
+
+                    <p>
+                        Manage company details.
+                    </p>
+
+                    <a href="{% url 'company_profile' %}"
+                       class="btn btn-success">
+                        Open
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Change Password -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-body text-center">
+
+                    <h4>🔒 Change Password</h4>
+
+                    <p>
+                        Change your account password.
+                    </p>
+
+                    <a href="{% url 'change_password' %}"
+                       class="btn btn-warning">
+                        Open
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Reports -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-body text-center">
+
+                    <h4>📊 Reports</h4>
+
+                    <p>
+                        View system reports.
+                    </p>
+
+                    <a href="{% url 'reports' %}"
+                       class="btn btn-info">
+                        Open
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Logout -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow h-100 border-danger">
+                <div class="card-body text-center">
+
+                    <h4>🚪 Logout</h4>
+
+                    <p>
+                        Logout from the application.
+                    </p>
+
+                    <a href="{% url 'logout' %}"
+                       class="btn btn-danger">
+                        Logout
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- About -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow h-100">
+                <div class="card-body text-center">
+
+                    <h4>ℹ️ About System</h4>
+
+                    <p><strong>Project:</strong> Inventory Management System</p>
+
+                    <p><strong>Version:</strong> 1.0</p>
+
+                    <p><strong>Developed Using:</strong> Django + Bootstrap + SQLite</p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

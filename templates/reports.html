@@ -1,0 +1,368 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Reports
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <h2 class="mb-4">
+        Reports Dashboard
+    </h2>
+
+    <!-- Summary Cards -->
+
+    <div class="row">
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow text-center p-3">
+                <h5>Total Products</h5>
+                <h2>{{ total_products }}</h2>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow text-center p-3">
+                <h5>Total Customers</h5>
+                <h2>{{ total_customers }}</h2>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow text-center p-3">
+                <h5>Total Suppliers</h5>
+                <h2>{{ total_suppliers }}</h2>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow text-center p-3">
+                <h5>Total Purchases</h5>
+                <h2>{{ total_purchases }}</h2>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow text-center p-3">
+                <h5>Total Payments</h5>
+                <h2>{{ total_payments }}</h2>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow text-center p-3">
+                <h5>Total Billings</h5>
+                <h2>{{ total_billings }}</h2>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow text-center p-3">
+                <h5>Total Receipts</h5>
+                <h2>{{ total_receipts }}</h2>
+            </div>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <!-- Product Report -->
+
+    <h3 class="mt-4">Product Report</h3>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Name</th>
+                <th>Unit</th>
+                <th>Price</th>
+                <th>GST</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for product in products %}
+
+        <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.unit }}</td>
+            <td>₹ {{ product.price }}</td>
+            <td>{{ product.gst }}%</td>
+            <td>{{ product.stock }}</td>
+        </tr>
+
+        {% empty %}
+
+        <tr>
+            <td colspan="5" class="text-center">
+                No Products Available
+            </td>
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+
+
+    <!-- Customer Report -->
+
+    <h3 class="mt-5">Customer Report</h3>
+
+    <table class="table table-bordered table-striped">
+
+        <thead class="table-dark">
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for customer in customers %}
+
+        <tr>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.phone }}</td>
+            <td>{{ customer.email }}</td>
+        </tr>
+
+        {% empty %}
+
+        <tr>
+            <td colspan="3" class="text-center">
+                No Customers
+            </td>
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+
+
+    <!-- Supplier Report -->
+
+    <h3 class="mt-5">Supplier Report</h3>
+
+    <table class="table table-bordered table-striped">
+
+        <thead class="table-dark">
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for supplier in suppliers %}
+
+        <tr>
+            <td>{{ supplier.name }}</td>
+            <td>{{ supplier.phone }}</td>
+            <td>{{ supplier.email }}</td>
+        </tr>
+
+        {% empty %}
+
+        <tr>
+            <td colspan="3" class="text-center">
+                No Suppliers
+            </td>
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+
+
+    <!-- Purchase Report -->
+
+    <h3 class="mt-5">Purchase Report</h3>
+
+    <table class="table table-bordered table-striped">
+
+        <thead class="table-dark">
+            <tr>
+                <th>Supplier</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Total Amount</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for purchase in purchases %}
+
+        <tr>
+            <td>{{ purchase.supplier }}</td>
+            <td>{{ purchase.product }}</td>
+            <td>{{ purchase.quantity }}</td>
+            <td>₹ {{ purchase.total_amount }}</td>
+            <td>{{ purchase.purchase_date }}</td>
+        </tr>
+
+        {% empty %}
+
+        <tr>
+            <td colspan="5" class="text-center">
+                No Purchase Records
+            </td>
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+
+
+    <!-- Payment Report -->
+
+    <h3 class="mt-5">Payment Report</h3>
+
+    <table class="table table-bordered table-striped">
+
+        <thead class="table-dark">
+            <tr>
+                <th>Customer</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for payment in payments %}
+
+        <tr>
+            <td>{{ payment.customer_name }}</td>
+            <td>{{ payment.payment_type }}</td>
+            <td>₹ {{ payment.amount }}</td>
+            <td>{{ payment.payment_date }}</td>
+        </tr>
+
+        {% empty %}
+
+        <tr>
+            <td colspan="4" class="text-center">
+                No Payments
+            </td>
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+
+
+    <!-- Billing Report -->
+
+    <h3 class="mt-5">Billing Report</h3>
+
+    <table class="table table-bordered table-striped">
+
+        <thead class="table-dark">
+            <tr>
+                <th>Invoice No</th>
+                <th>Customer</th>
+                <th>Product</th>
+                <th>Total Amount</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for bill in billings %}
+
+        <tr>
+            <td>{{ bill.invoice_no }}</td>
+            <td>{{ bill.customer_name }}</td>
+            <td>{{ bill.product_name }}</td>
+            <td>₹ {{ bill.total_amount }}</td>
+            <td>{{ bill.billing_date }}</td>
+        </tr>
+
+        {% empty %}
+
+        <tr>
+            <td colspan="5" class="text-center">
+                No Billing Records
+            </td>
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+
+
+    <!-- Receipt Report -->
+
+    <h3 class="mt-5">Receipt Report</h3>
+
+    <table class="table table-bordered table-striped">
+
+        <thead class="table-dark">
+            <tr>
+                <th>Customer</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Amount</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for receipt in receipts %}
+
+        <tr>
+            <td>{{ receipt.customer_name }}</td>
+            <td>{{ receipt.product_name }}</td>
+            <td>{{ receipt.quantity }}</td>
+            <td>₹ {{ receipt.amount }}</td>
+            <td>{{ receipt.date }}</td>
+        </tr>
+
+        {% empty %}
+
+        <tr>
+            <td colspan="5" class="text-center">
+                No Receipts
+            </td>
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

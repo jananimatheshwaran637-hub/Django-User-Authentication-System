@@ -1,0 +1,200 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Employee List</title>
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+
+
+<body>
+
+
+<div class="main-container">
+
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+<h2>ERP SYSTEM</h2>
+
+
+<a href="{% url 'dashboard' %}">
+Dashboard
+</a>
+
+
+<a href="{% url 'profile' %}">
+Profile
+</a>
+
+
+<a href="{% url 'employee_list' %}">
+Employees
+</a>
+
+
+<a href="{% url 'logout' %}">
+Logout
+</a>
+
+
+</div>
+
+
+
+<!-- Content -->
+
+<div class="content">
+
+
+<div class="top-header">
+
+<h2>
+Employee Management
+</h2>
+
+
+<p>
+Employee Records
+</p>
+
+
+</div>
+
+
+
+<a class="add-btn" href="{% url 'add_employee' %}">
++ Add Employee
+</a>
+
+
+
+
+<div class="table-card">
+
+
+<table>
+
+
+<tr>
+
+<th>Photo</th>
+
+<th>Name</th>
+
+<th>ID</th>
+
+<th>Department</th>
+
+<th>Designation</th>
+
+<th>Salary</th>
+
+<th>Action</th>
+
+</tr>
+
+
+
+{% for emp in employees %}
+
+
+<tr>
+
+
+<td>
+
+{% if emp.photo %}
+
+<img src="{{ emp.photo.url }}" width="50" height="50">
+
+{% endif %}
+
+</td>
+
+
+
+<td>
+{{ emp.name }}
+</td>
+
+
+
+<td>
+{{ emp.employee_id }}
+</td>
+
+
+<td>
+{{ emp.department }}
+</td>
+
+
+<td>
+{{ emp.designation }}
+</td>
+
+
+<td>
+{{ emp.salary }}
+</td>
+
+
+
+<td>
+
+<a class="edit-btn"
+href="{% url 'edit_employee' emp.id %}">
+Edit
+</a>
+
+
+<a class="delete-btn"
+href="{% url 'delete_employee' emp.id %}">
+Delete
+</a>
+
+</td>
+
+
+</tr>
+
+
+{% empty %}
+
+<tr>
+
+<td colspan="7">
+No Employees Found
+</td>
+
+</tr>
+
+
+{% endfor %}
+
+
+
+</table>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+</body>
+
+</html>

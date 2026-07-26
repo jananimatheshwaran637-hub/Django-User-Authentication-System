@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Edit Receipt
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+
+<h2 class="mb-4">
+    Edit Receipt
+</h2>
+
+
+<form method="POST">
+
+{% csrf_token %}
+
+
+<div class="card shadow p-4">
+
+{{ form.as_p }}
+
+
+<button type="submit"
+class="btn btn-primary">
+
+Update Receipt
+
+</button>
+
+
+<a href="{% url 'receipt' %}"
+class="btn btn-secondary">
+
+Back
+
+</a>
+
+
+</div>
+
+
+</form>
+
+
+</div>
+
+
+{% endblock %}

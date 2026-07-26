@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+<h2>Purchase Details</h2>
+
+
+<div class="card">
+
+<div class="card-body">
+
+
+<p><b>Supplier:</b> {{purchase.supplier.name}}</p>
+
+<p><b>Product:</b> {{purchase.product.name}}</p>
+
+<p><b>Quantity:</b> {{purchase.quantity}}</p>
+
+<p><b>Price:</b> {{purchase.purchase_price}}</p>
+
+<p><b>Total:</b> {{purchase.total_amount}}</p>
+
+<p><b>Date:</b> {{purchase.purchase_date}}</p>
+
+
+<a href="{% url 'purchase' %}"
+class="btn btn-secondary">
+
+Back
+
+</a>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+{% endblock %}

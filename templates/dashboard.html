@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <h2 class="mb-4">
+        Dashboard
+    </h2>
+
+    <div class="row">
+
+        <!-- Products -->
+        <div class="col-md-3 mb-4">
+            <div class="card shadow text-center p-3">
+                <h5>Total Products</h5>
+                <h2>{{ total_products }}</h2>
+                <a href="{% url 'products' %}" class="btn btn-primary btn-sm">
+                    View
+                </a>
+            </div>
+        </div>
+
+        <!-- Stock -->
+        <div class="col-md-3 mb-4">
+            <div class="card shadow text-center p-3">
+                <h5>Total Stock</h5>
+                <h2>{{ total_stock }}</h2>
+                <span class="text-success">
+                    Available
+                </span>
+            </div>
+        </div>
+
+        <!-- Customers -->
+        <div class="col-md-3 mb-4">
+            <div class="card shadow text-center p-3">
+                <h5>Customers</h5>
+                <h2>{{ total_customers }}</h2>
+                <a href="{% url 'customers' %}" class="btn btn-info btn-sm">
+                    View
+                </a>
+            </div>
+        </div>
+
+        <!-- Suppliers -->
+        <div class="col-md-3 mb-4">
+            <div class="card shadow text-center p-3">
+                <h5>Suppliers</h5>
+                <h2>{{ total_suppliers }}</h2>
+                <a href="{% url 'suppliers' %}" class="btn btn-dark btn-sm">
+                    View
+                </a>
+            </div>
+        </div>
+
+        <!-- Purchase -->
+        <div class="col-md-3 mb-4">
+            <div class="card shadow text-center p-3">
+                <h5>Purchases</h5>
+                <h2>{{ total_purchase }}</h2>
+                <a href="{% url 'purchase' %}" class="btn btn-warning btn-sm">
+                    View
+                </a>
+            </div>
+        </div>
+
+        <!-- Payments -->
+        <div class="col-md-3 mb-4">
+            <div class="card shadow text-center p-3">
+                <h5>Payments</h5>
+                <h2>{{ total_payments }}</h2>
+                <a href="{% url 'payments' %}" class="btn btn-success btn-sm">
+                    View
+                </a>
+            </div>
+        </div>
+
+        <!-- Billing -->
+        <div class="col-md-3 mb-4">
+            <div class="card shadow text-center p-3">
+                <h5>Billings</h5>
+                <h2>{{ total_billings }}</h2>
+                <a href="{% url 'billing' %}" class="btn btn-secondary btn-sm">
+                    View
+                </a>
+            </div>
+        </div>
+
+        <!-- Receipt -->
+        <div class="col-md-3 mb-4">
+            <div class="card shadow text-center p-3">
+                <h5>Receipts</h5>
+                <h2>{{ total_receipts }}</h2>
+                <a href="{% url 'receipt' %}" class="btn btn-danger btn-sm">
+                    View
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

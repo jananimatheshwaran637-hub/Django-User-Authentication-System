@@ -1,0 +1,81 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %}Company Profile{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-primary text-white">
+
+            <h4>Company Profile</h4>
+
+        </div>
+
+        <div class="card-body">
+
+            <form method="POST" enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <label>Company Name</label>
+                        <input type="text" name="company_name" class="form-control">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Owner Name</label>
+                        <input type="text" name="owner_name" class="form-control">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Email</label>
+                        <input type="email" name="email" class="form-control">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Phone</label>
+                        <input type="text" name="phone" class="form-control">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>GST Number</label>
+                        <input type="text" name="gst" class="form-control">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>PAN Number</label>
+                        <input type="text" name="pan" class="form-control">
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <label>Address</label>
+                        <textarea name="address" class="form-control" rows="4"></textarea>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Company Logo</label>
+                        <input type="file" name="logo" class="form-control">
+                    </div>
+
+                </div>
+
+                <button class="btn btn-success">
+                    Save Company
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

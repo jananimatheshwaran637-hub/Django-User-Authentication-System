@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Customer{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <h2>Edit Customer</h2>
+
+    <div class="card shadow mt-3">
+
+        <div class="card-body">
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <button type="submit" class="btn btn-success">
+                    Update Customer
+                </button>
+
+                <a href="{% url 'customers' %}" 
+                   class="btn btn-secondary">
+                    Back
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

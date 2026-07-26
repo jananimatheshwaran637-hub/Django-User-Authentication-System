@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h2>Create New Bill</h2>
+
+
+    <div class="card mt-3">
+
+        <div class="card-body">
+
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+
+                {{ form.as_p }}
+
+
+                <button type="submit" class="btn btn-success">
+
+                    Save Bill
+
+                </button>
+
+
+                <a href="{% url 'billing' %}" 
+                   class="btn btn-secondary">
+
+                    Back
+
+                </a>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}
