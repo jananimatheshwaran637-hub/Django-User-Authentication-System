@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'login_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'novaerp',
+        'NAME': 'login_db',
         'USER': 'root',
         'PASSWORD': 'Janani$2006',
         'HOST': 'localhost',
